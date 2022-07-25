@@ -4,7 +4,7 @@ const app = express();
 
 //Controllers.
 const LoginController = require('./controllers/login.controller');
-
+const RegsiterController = require('./controllers/register.controller');
 // app status
 app.get("/health",(req,res)=>{
     console.log("The Server is up and running");
@@ -13,5 +13,8 @@ app.get("/health",(req,res)=>{
 
 //Login route.
 app.get('/login',LoginController.ShowLoginPage);
+
+//Register Route
+app.get('/register',RegsiterController.ShowRegisterPage);
 
 module.exports = app
