@@ -3,13 +3,18 @@
         <div class="card mb-3 w-75 shadow-lg p-3 mb-5 bg-white rounded " style="max-width: 50rem;">
             <div class="row g-0">
                 <div class="col-md-5">
-                    <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000" class="img-fluid rounded" alt="..." style="width: 100%;height:100%;"> 
+                    <img src="https://img.freepik.com/free-vector/sign-page-abstract-concept-illustration-enter-application-mobile-screen-user-login-form-website-page-interface-ui-new-profile-registration-email-account_335657-936.jpg?w=2000" class="img-fluid rounded" alt="..." style="width: 100%;height:100%;"> 
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
                         <h5 class="card-title h1">Register</h5>
                         <p class="card-text">
-                            <form class="mt-4">
+                            <%if(message!==''){%>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= message %>
+                                </div>
+                            <%}%>
+                            <form class="mt-4" action="/register" method="post">
                                 <div class="mb-3">
                                     <div class="form-floating mb-3">
                                         <input type="email" name="email" class="form-control" id="floatingInput"

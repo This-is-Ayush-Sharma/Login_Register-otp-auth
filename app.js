@@ -15,9 +15,7 @@ app.use('/',routes);
 
 setupDB.connectDB();
 
-app.get('/',(req,res)=>{
-    res.send("fuck off..");
-})
+
 
 app.listen(process.env.PORT,()=>{
     console.log("server is up and listenting.");
