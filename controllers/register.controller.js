@@ -16,13 +16,13 @@ exports.actionRegisterpPage = async (req, res) => {
             password: await crypt.encode(password),
             status:"INACTIVE"
         })
-        res.render('Register',{
+        return res.render('Register',{
             message:'Account registered.'
         })
     }
     catch(error){
         // console.log("Some error occured");
-        res.render('Register',{
+        return res.render('Register',{
             message:'Account already registered. please login!'
         })
     }

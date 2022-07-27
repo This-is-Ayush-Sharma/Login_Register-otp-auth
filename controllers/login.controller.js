@@ -1,7 +1,9 @@
 const User = require('../models/user');
 const crypt = require('../utils/crypt');
+const tokenGen =require('../utils/generateToken');
 
 exports.ShowLoginPage = (req,res)=>{
+    console.log(req.headers.cookie);
     res.render('Login',{
         message:""
     });
@@ -13,17 +15,20 @@ exports.ActionLoginPage = async (req,res)=>{
         const user = await User.findOne({email:email})
         if(!user)
         {
-            res.render('Login',{
+            return res.render('Login',{
                 message:'Account not found!'
             })
         }
         if(crypt.decode(user.password,password))
         {
-            res.render('dashboard');
+            const token = await tokenGen.genToken(req.body.email);
+            // console.log(token);
+            res.cookie("token",token);
+            return res.redirect('/dashboard');
         }
         else
         {
-            res.render('Login',{
+            return res.render('Login',{
                 message:"Invalid email or password."
             })
         }
