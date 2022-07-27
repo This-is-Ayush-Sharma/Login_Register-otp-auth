@@ -9,11 +9,17 @@
                     <div class="card-body">
                         <h5 class="card-title h1">Login</h5>
                         <p class="card-text">
-                            <%if(message!==''){%>
+                            <%if(message==='Account Not Active'){%>
                                 <div class="alert alert-danger" role="alert">
-                                    <%= message %>
+                                    <%= message %> <a href="/sendotp">Activate your Account</a>
                                 </div>
                             <%}%>
+                            <%if(message!=='' && message!=='Account Not Active'){%>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= message %> 
+                                </div>
+                            <%}%>
+                            
                             <form class="mt-4" method="post" action="/login">
                                 <div class="mb-3">
                                     <div class="form-floating mb-3">

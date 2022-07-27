@@ -20,6 +20,7 @@ app.get('/',(req,res)=>{
 })
 
 //otp auth
+app.get('/sendotp',otpauth.sendOtp);
 app.get('/verify',otpauth.showOtpPage);
 
 //Login route.
