@@ -10,8 +10,14 @@
                         <h5 class="card-title h1">Login</h5>
                         <p class="card-text">
                             <%if(message==='Account Not Active'){%>
-                                <div class="alert alert-danger" role="alert">
-                                    <%= message %> <a href="/sendotp">Activate your Account</a>
+                                <div class="alert alert-danger d-flex" role="alert">
+                                    <%= message %>
+                                     <!-- <a href="/sendotp">Activate your Account</a> -->
+                                    <form action="/sendotp" method="get">
+                                        <input hidden type="email" name="email" value="<%=email%>">
+                                        <input type="submit" class="border-0 bg-transparent text-decoration-underline text-primary" value="Activate your Account">
+                                    </form>
+
                                 </div>
                             <%}%>
                             <%if(message!=='' && message!=='Account Not Active'){%>
@@ -24,7 +30,7 @@
                                 <div class="mb-3">
                                     <div class="form-floating mb-3">
                                         <input type="email" name="email" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">
+                                            placeholder="name@example.com" value="<%=email%>">
                                         <label for="floatingInput">Email address</label>
                                     </div>
                                   <!-- <label for="exampleInputEmail1" class="form-label">Email address</label>

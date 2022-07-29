@@ -17,8 +17,9 @@ exports.actionRegisterpPage = async (req, res) => {
             // password,
             status:"INACTIVE"
         })
-        return res.render('Register',{
-            message:'Account registered.'
+        return res.render('login',{
+            message:'Account registered.',
+            email
         })
     }
     catch(error){

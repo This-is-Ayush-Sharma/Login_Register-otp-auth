@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 exports.isAuthenticated = async (req,res,next)=>{
     let cookie = req.headers.cookie; // we need to access the cookies from the header.
-    if(!cookie){
+    if(!cookie.includes("token")){
         return res.render('Login',{
             message:"You are not authorized."
         })

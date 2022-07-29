@@ -5,7 +5,8 @@ const tokenGen = require('../utils/generateToken');
 exports.ShowLoginPage = (req, res) => {
     // console.log(req.headers.cookie);
     res.render('Login', {
-        message: ""
+        message: "",
+        email:""
     });
 }
 
@@ -32,12 +33,14 @@ exports.ActionLoginPage = async (req, res) => {
                 // console.log(email);
                 return res.render('Login', {
                     message: 'Account Not Active',
+                    email
                 })
             }
         }
         else {
             return res.render('Login', {
-                message: "Invalid email or password."
+                message: "Invalid email or password.",
+                email
             })
         }
     }
@@ -45,3 +48,5 @@ exports.ActionLoginPage = async (req, res) => {
         console.log("some error occured");
     }
 }
+
+

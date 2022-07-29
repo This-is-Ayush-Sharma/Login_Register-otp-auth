@@ -13,15 +13,18 @@ app.get("/health",(req,res)=>{
     console.log("The Server is up and running");
     res.send("The Server is up and running");
 });
-app.get('/',(req,res)=>{
-    res.render('Login',{
-        message:""
-    })
-})
+// app.get('/',(req,res)=>{
+//     res.render('Login',{
+//         message:"",
+//         email:""
+//     })
+// })
 
 //otp auth
 app.get('/sendotp',otpauth.sendOtp);
+
 app.get('/verify',otpauth.showOtpPage);
+app.post('/verify',otpauth.TestOtp);
 
 //Login route.
 app.get('/login',LoginController.ShowLoginPage);
