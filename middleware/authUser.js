@@ -18,7 +18,7 @@ exports.isAuthenticated = async (req,res,next)=>{
                 message:'session expired.'
             })
         }
-        console.log(user);
+        // console.log(user);
         req.user=user;
         next();
     });

@@ -3,7 +3,7 @@ const crypt = require('../utils/crypt');
 const tokenGen = require('../utils/generateToken');
 
 exports.ShowLoginPage = (req, res) => {
-    console.log(req.headers.cookie);
+    // console.log(req.headers.cookie);
     res.render('Login', {
         message: ""
     });
@@ -18,7 +18,10 @@ exports.ActionLoginPage = async (req, res) => {
                 message: 'Account not found!'
             })
         }
-        if (crypt.decode(user.password, password)) {
+
+
+
+        if (await crypt.decode(user.password, password)) {
             if (user.status === 'ACTIVE') {
                 const token = await tokenGen.genToken(req.body.email);
                 // console.log(token);
@@ -26,7 +29,7 @@ exports.ActionLoginPage = async (req, res) => {
                 return res.redirect('/dashboard');
             }
             else{
-                console.log(email);
+                // console.log(email);
                 return res.render('Login', {
                     message: 'Account Not Active',
                 })

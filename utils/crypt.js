@@ -1,10 +1,10 @@
 const crypt = require('bcrypt');
 
 
-exports.encode = (password)=>{
-    return crypt.hash(password,5);
+exports.encode = async (password)=>{
+    return crypt.hash(password,2);
 }
 
-exports.decode = (hash,password)=>{
-    return crypt.compare(hash,password);
+exports.decode = async (hash,password)=>{
+    return crypt.compare(password,hash);
 }

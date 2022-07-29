@@ -14,6 +14,7 @@ exports.actionRegisterpPage = async (req, res) => {
             email,
             number,
             password: await crypt.encode(password),
+            // password,
             status:"INACTIVE"
         })
         return res.render('Register',{
