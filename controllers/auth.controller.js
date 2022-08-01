@@ -4,5 +4,5 @@ exports.dashboard = async(req,res)=>{
 
 exports.logout = async (req, res) => {
     res.clearCookie("token");
-    return res.redirect("/");
+    return res.redirect("/login");
 }

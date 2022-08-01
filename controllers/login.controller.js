@@ -16,7 +16,8 @@ exports.ActionLoginPage = async (req, res) => {
         const user = await User.findOne({ email: email })
         if (!user) {
             return res.render('Login', {
-                message: 'Account not found!'
+                message: 'Account not found!',
+                email
             })
         }
 

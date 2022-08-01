@@ -54,7 +54,7 @@ exports.TestOtp = async (req, res) => {
         const data = await OtpData.findOne({ email: email });
         if (data.otp === (val1 + val2 + val3 + val4)) {
             await User.updateOne({ email: email }, { status: "ACTIVE" });
-            OtpData.deleteOne({ email: email });
+            await OtpData.deleteOne({ email: email });
             res.render('login', {
                 message: "You account is active Now.",
                 email
